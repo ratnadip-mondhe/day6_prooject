@@ -20,6 +20,7 @@ let addNewElement=()=>{
 };
  return(
    <div>
+     <h1>Hello Everyone</h1>
      <h1>Learning to  declare stateful variable</h1>
    <h1>Counter:: {counter}
    <input type="button" value="Increment" onClick ={updateCounter}/>
