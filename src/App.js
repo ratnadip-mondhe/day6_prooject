@@ -3,44 +3,23 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  let [counter, setCounter] = useState(0);
-  let [list, setList] = useState(["delhi", "mumbai"]);
-
-  let updateCounter = () => {
-    let newvalue = counter + 100;
-    setCounter(newvalue);
-  };
-
-  let addNewElement = () => {
-    // alert("something is happening....");
-    let newlist = ["I am new Post", ...list];
-    setList(newlist);
-  };
-
   return (
     <div>
-      <h1>Stateful Continue</h1>
-      <h1>
-        Counter :: 👍 {counter}
-        <input type="button" value="Increment" onClick={updateCounter} />
-      </h1>
-      <hr />
+      <h1 className="bg-dark text-light p-3">Working with CSS Again</h1>
 
-      <input
-        type="button"
-        value="Add New Element in List"
-        onClick={addNewElement}
-      />
-      {list.map((item) => {
-        return (
-          <div className="bg-success text-light my-1 p-3 h4">
-            {item} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
-            rerum eum porro excepturi culpa magnam tempore praesentium. Labore
-            similique commodi rem? Accusamus obcaecati praesentium sunt eum
-            expedita omnis fugiat beatae.
-          </div>
-        );
-      })}
+      <h5 style={{ color: "white", backgroundColor: "royalblue" }}>
+        INLINE CSS :: Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        Error eligendi vel reprehenderit. Cumque quia officia, totam sunt
+        tempora optio iste mollitia necessitatibus vel eius eligendi veniam
+        distinctio recusandae et ea?
+      </h5>
+
+      <p className="beafutify">
+        CSS FILE. App.css Lorem ipsum dolor sit amet consectetur adipisicing
+        elit. Inventore accusamus accusantium illum quam enim reprehenderit
+        assumenda consequatur impedit, eaque voluptatem aperiam vitae? Pariatur
+        deleniti molestiae modi tenetur porro temporibus quisquam?
+      </p>
     </div>
   );
 }
