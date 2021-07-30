@@ -7,77 +7,38 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <NavMenu />
-
-      <Route exact={true} path="/page1" component={Page1} />
-      <Route exact={true} path="/page2" component={Page2} />
-      <Route exact={true} path="/page3" component={Page3} />
-      <Route exact={true} path="/hw" component={HelloWorld} />
-      <Route exact={true} path="/hu" component={HelloUniverse} />
-      <Route exact={true} path="/" component={Page1} />
-    </BrowserRouter>
-  );
-}
-
-function NavMenu() {
-  return (
     <div>
-      <Link to="/hw"> Hellooo</Link>
-      <Link to="/hu"> Universe</Link>
-      <Link to="/page1"> Page1</Link>
-      <Link to="/page2">Page2</Link>
-      <Link to="/page3">Page3</Link>
+      <MyCompoenent />
     </div>
   );
 }
 
-function Page1() {
-  return (
-    <div>
-      <h1>Page1 Lonavala</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod similique
-        aut sapiente delectus, dignissimos nesciunt perferendis velit ad
-        repellendus facere consequuntur debitis! Quidem iste dolor veniam
-        accusamus, molestiae commodi modi!
-      </p>
+function MyCompoenent() {
+  let [list, setList] = useState(["delhi"]);
 
-      <h1>Page1 Lonavala</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod similique
-        aut sapiente delectus, dignissimos nesciunt perferendis velit ad
-        repellendus facere consequuntur debitis! Quidem iste dolor veniam
-        accusamus, molestiae commodi modi!
-      </p>
-    </div>
-  );
-}
-
-function Page2() {
   return (
-    <div>
-      <h1>Page2 Goa</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod similique
-        aut sapiente delectus, dignissimos nesciunt perferendis velit ad
-        repellendus facere consequuntur debitis! Quidem iste dolor veniam
-        accusamus, molestiae commodi modi!
-      </p>
-    </div>
-  );
-}
+    <div className="m-2">
+      <h1>Work with Forms</h1>
 
-function Page3() {
-  return (
-    <div>
-      <h1>Page3 Delhi</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod similique
-        aut sapiente delectus, dignissimos nesciunt perferendis velit ad
-        repellendus facere consequuntur debitis! Quidem iste dolor veniam
-        accusamus, molestiae commodi modi!
-      </p>
+      <input
+        type="text"
+        className="form-control form-control-lg my-2"
+        style={{ height: 75 }}
+        placeholder="Post your thought"
+      />
+      <input
+        type="button"
+        className="btn btn-primary w-100"
+        value="POST YOUR THOUGHT"
+      />
+
+      <div className="h1 bg-light my-1 p-3 text-primary border">
+        Thought List
+      </div>
+
+      {list.map((item) => {
+        return <div className="alert alert-primary mt-1">{item}</div>;
+      })}
     </div>
   );
 }
