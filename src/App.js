@@ -1,79 +1,30 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
-import { HelloWorld } from "./pages/HelloWorld";
-import { HelloUniverse } from "./pages/HelloUniverse";
-import { BrowserRouter, Route, Link } from "react-router-dom";
 
-export default function App() {
+function App() {
   return (
     <div>
-      <MyCompoenent />
+      <MyComponent heading="Java" desc="Java is cool." />
+      <MyComponent heading="Javascript" desc="Javascript is Hot!!" />
+      <MyComponent heading="Python" desc="Python is Intelligent!!" />
     </div>
   );
 }
 
-function MyCompoenent() {
-  let [list, setList] = useState([]);
-
-  // 1.
-  let [thought, setThought] = useState("");
-
-  const postYourThought = () => {
-    // const newlist = ["New Thought", ...list];
-    const newlist = [thought, ...list];
-    setList(newlist);
-
-    // clear the input:thougth
-    setThought("");
-  };
-
-  // 4
-  const handleInputChange = (e) => {
-    // console.log(e.target.value);
-
-    const newthought = e.target.value;
-    setThought(newthought);
-  };
-
-  // ENTER-2
-  const handleKeyEvent = (e) => {
-    // console.log(e.key, e.keyCode);
-    if (e.keyCode == 13) {
-      // console.log("User Has Pressed Entered....");
-      postYourThought();
-    }
-  };
-
+// Reading the PROPS passed by the Parent.
+function MyComponent({ heading, desc }) {
   return (
-    <div className="m-2">
-      <h1 className="bg-primary text-light p-4 rounded sticky-top">
-        Work with Mini Facebook
-      </h1>
-
-      <input
-        type="text"
-        className="form-control form-control-lg my-2"
-        style={{ height: 75 }}
-        placeholder="Post your thought"
-        value={thought} // 2.
-        onChange={handleInputChange} // 3
-        onKeyDown={handleKeyEvent} // ENTER-1
-      />
-      <input
-        type="button"
-        className="btn  btn-outline-primary w-100"
-        value="POST YOUR THOUGHT"
-        onClick={postYourThought}
-      />
-
-      <div className="h1 bg-light my-1 p-3 text-primary border">
-        Thought List
-      </div>
-
-      {list.map((item) => {
-        return <div className="alert alert-primary mt-1">{item}</div>;
-      })}
+    <div className="bg-dark p-3 text-light mb-1">
+      <h1>Learning {heading}</h1>
+      <hr />
+      <p>
+        <mark className="rounded alert-warning">{desc}</mark> Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Earum harum iusto, repellendus
+        officia cumque officiis amet sed aspernatur rem assumenda recusandae
+        odio ipsa libero a voluptas voluptate, facere reiciendis aliquam?
+      </p>
     </div>
   );
 }
+
+export default App;
