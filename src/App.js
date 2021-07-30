@@ -32,7 +32,14 @@ function App() {
         onClick={addNewElement}
       />
       {list.map((item) => {
-        return <h1>{item}</h1>;
+        return (
+          <div className="bg-success text-light my-1 p-3 h4">
+            {item} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos
+            rerum eum porro excepturi culpa magnam tempore praesentium. Labore
+            similique commodi rem? Accusamus obcaecati praesentium sunt eum
+            expedita omnis fugiat beatae.
+          </div>
+        );
       })}
     </div>
   );
