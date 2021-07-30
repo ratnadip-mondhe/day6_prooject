@@ -16,6 +16,11 @@ export default function App() {
 function MyCompoenent() {
   let [list, setList] = useState(["delhi"]);
 
+  const postYourThought = () => {
+    const newlist = ["New Thought", ...list];
+    setList(newlist);
+  };
+
   return (
     <div className="m-2">
       <h1>Work with Forms</h1>
@@ -30,6 +35,7 @@ function MyCompoenent() {
         type="button"
         className="btn btn-primary w-100"
         value="POST YOUR THOUGHT"
+        onClick={postYourThought}
       />
 
       <div className="h1 bg-light my-1 p-3 text-primary border">
