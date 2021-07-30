@@ -14,26 +14,45 @@ export default function App() {
 }
 
 function MyCompoenent() {
-  let [list, setList] = useState(["delhi"]);
+  let [list, setList] = useState([]);
+
+  // 1.
+  let [thought, setThought] = useState("");
 
   const postYourThought = () => {
-    const newlist = ["New Thought", ...list];
+    // const newlist = ["New Thought", ...list];
+    const newlist = [thought, ...list];
     setList(newlist);
+
+    // clear the input:thougth
+    setThought("");
+  };
+
+  // 4
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+
+    const newthought = e.target.value;
+    setThought(newthought);
   };
 
   return (
     <div className="m-2">
-      <h1>Work with Forms</h1>
+      <h1 className="bg-primary text-light p-4 rounded sticky-top">
+        Work with Mini Facebook
+      </h1>
 
       <input
         type="text"
         className="form-control form-control-lg my-2"
         style={{ height: 75 }}
         placeholder="Post your thought"
+        value={thought} // 2.
+        onChange={handleInputChange} // 3
       />
       <input
         type="button"
-        className="btn btn-primary w-100"
+        className="btn  btn-outline-primary w-100"
         value="POST YOUR THOUGHT"
         onClick={postYourThought}
       />
